@@ -1,0 +1,22 @@
+Additional context for App Review — «Расписание в вузе» (com.sanum.schedule)
+
+ORGANIZATION / VENDOR NEUTRAL
+The app is NOT tied to any specific university, company, or website. Users supply their own iCalendar (.ics) URL or enter classes manually. Any host that serves a compatible .ics file may be used.
+
+SUPPORTED CALENDAR FORMAT (documented for reviewers)
+Public documentation: https://sanumxxx.github.io/schedule-privacy/calendar-format.html
+Demo calendar (mock groups, fictional data): https://sanumxxx.github.io/schedule-privacy/demo.html
+Direct .ics URL: https://sanumxxx.github.io/schedule-privacy/mock-calendar.ics
+
+Expected VEVENT shape:
+- SUMMARY: Discipline name + lesson type in parentheses, e.g. "Programming (Lecture)"
+- DESCRIPTION: lines "Группа: <name>" and "Подгруппа: <number>" (Group / Subgroup — labels are parsed as plain text)
+- LOCATION: room
+- DTSTART / DTEND with timezone
+
+Review steps without login:
+1. Open app → choose Teacher or Student
+2. Paste demo URL above OR use manual entry
+3. View schedule; for Teacher open Journal
+
+No accounts, IAP, UGC sharing, AI, or developer backend.
