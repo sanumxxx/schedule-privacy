@@ -3,73 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Демо-календарь — Расписание в вузе</title>
-  <link rel="stylesheet" href="style.css">
+  <meta http-equiv="refresh" content="0; url=calendar.html">
+  <title>Пример календаря — Расписание в вузе</title>
+  <link rel="canonical" href="calendar.html">
 </head>
 <body>
-  <div class="wrap">
-    <nav>
-      <a href="index.html">Поддержка</a>
-      <a href="calendar-format.html">Формат .ics</a>
-      <a href="demo.html" aria-current="page">Демо-календарь</a>
-    </nav>
-
-    <div class="card">
-      <h1>Демо-календарь</h1>
-      <p class="meta">Мок для App Review и тестов. Не связан с конкретным вузом.</p>
-      <p>В файле — вымышленные группы <strong>ИВТ-21</strong>, <strong>ПИ-22</strong>, <strong>ИСИТ-31</strong>, типы занятий и аудитории. Структура совместима с типичными экспортами расписания в .ics.</p>
-    </div>
-
-    <div class="card">
-      <h2>Импорт в приложение</h2>
-      <ol>
-        <li>Нажмите «Скопировать ссылку на календарь».</li>
-        <li>Откройте «Расписание в вузе» → настройка → «Загрузить по ссылке».</li>
-        <li>Вставьте ссылку и загрузите.</li>
-      </ol>
-      <button type="button" class="btn btn-primary" id="copy-link">Скопировать ссылку на календарь</button>
-      <button type="button" class="btn btn-secondary" id="copy-webcal">Скопировать как webcal://</button>
-      <p class="status" id="status" aria-live="polite"></p>
-      <p style="font-size:0.92rem;color:var(--muted);margin-top:0.75rem;">Ссылка на этой странице:<br><code id="link-preview"></code></p>
-    </div>
-
-    <div class="card">
-      <h2>Открыть файл</h2>
-      <p><a id="open-ics" href="mock-calendar.ics">Скачать / открыть mock-calendar.ics</a></p>
-      <p style="font-size:0.92rem;color:var(--muted);">Если импорт по ссылке недоступен, откройте файл через «Поделиться» → приложение «Расписание».</p>
-    </div>
-
-    <div class="card">
-      <h2>Документация формата</h2>
-      <p><a href="calendar-format.html">Описание полей SUMMARY, DESCRIPTION, LOCATION</a></p>
-    </div>
-  </div>
-  <script>
-    (function () {
-      const icsURL = new URL('mock-calendar.ics', window.location.href).href;
-      const webcalURL = icsURL.replace(/^https?:/, 'webcal:');
-      const preview = document.getElementById('link-preview');
-      const status = document.getElementById('status');
-      preview.textContent = icsURL;
-
-      async function copyText(text, message) {
-        try {
-          await navigator.clipboard.writeText(text);
-          status.textContent = message;
-          status.className = 'status ok';
-        } catch (e) {
-          status.textContent = 'Не удалось скопировать. Выделите ссылку вручную.';
-          status.className = 'status';
-        }
-      }
-
-      document.getElementById('copy-link').addEventListener('click', function () {
-        copyText(icsURL, 'Ссылка скопирована. Вставьте её в приложении.');
-      });
-      document.getElementById('copy-webcal').addEventListener('click', function () {
-        copyText(webcalURL, 'webcal-ссылка скопирована.');
-      });
-    })();
-  </script>
+  <p><a href="calendar.html">Перейти к примеру календаря</a></p>
 </body>
 </html>

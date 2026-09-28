@@ -1,22 +1,20 @@
-Additional context for App Review — «Расписание в вузе» (com.sanum.schedule)
+«Расписание в вузе» (com.sanum.schedule) — reference for support and import
 
-ORGANIZATION / VENDOR NEUTRAL
-The app is NOT tied to any specific university, company, or website. Users supply their own iCalendar (.ics) URL or enter classes manually. Any host that serves a compatible .ics file may be used.
+The app is not tied to any specific university, company, or website. Users add their own iCalendar (.ics) URL or enter classes manually. Any HTTPS host that serves a compatible .ics file may be used.
 
-SUPPORTED CALENDAR FORMAT (documented for reviewers)
-Public documentation: https://sanumxxx.github.io/schedule-privacy/calendar-format.html
-Demo calendar (mock groups, fictional data): https://sanumxxx.github.io/schedule-privacy/demo.html
-Direct .ics URL: https://sanumxxx.github.io/schedule-privacy/mock-calendar.ics
+Calendar format (Russian UI, standard iCalendar):
+https://sanumxxx.github.io/schedule-privacy/calendar-format.html
 
-Expected VEVENT shape:
-- SUMMARY: Discipline name + lesson type in parentheses, e.g. "Programming (Lecture)"
-- DESCRIPTION: lines "Группа: <name>" and "Подгруппа: <number>" (Group / Subgroup — labels are parsed as plain text)
+Sample calendar to import:
+https://sanumxxx.github.io/schedule-privacy/calendar.html
+Direct file: https://sanumxxx.github.io/schedule-privacy/sample-calendar.ics
+
+Typical VEVENT fields:
+- SUMMARY: discipline and lesson type in parentheses
+- DESCRIPTION: lines starting with Группа: and Подгруппа:
 - LOCATION: room
 - DTSTART / DTEND with timezone
 
-Review steps without login:
-1. Open app → choose Teacher or Student
-2. Paste demo URL above OR use manual entry
-3. View schedule; for Teacher open Journal
+No login, in-app purchases, shared user content, or developer-hosted backend. Network is used only when the user submits a calendar URL.
 
-No accounts, IAP, UGC sharing, AI, or developer backend.
+Support: https://sanumxxx.github.io/schedule-privacy/

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Пример календаря — Расписание в вузе</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a href="index.html">Поддержка</a>
+      <a href="calendar-format.html">Формат .ics</a>
+      <a href="calendar.html" aria-current="page">Пример календаря</a>
+    </nav>
+
+    <div class="card">
+      <h1>Пример календаря</h1>
+      <p class="meta">Обновлено: 28 сентября 2026 г.</p>
+      <p>Готовый файл расписания в формате iCalendar (.ics). В нём несколько недель занятий с группами <strong>ИВТ-21</strong>, <strong>ПИ-22</strong> и <strong>ИСИТ-31</strong>, разными типами пар и аудиториями.</p>
+      <p>Приложение не привязано к конкретной организации: вы можете использовать свой календарь по той же структуре полей или этот файл, чтобы посмотреть, как выглядит импорт.</p>
+    </div>
+
+    <div class="card">
+      <h2>Подключить по ссылке</h2>
+      <ol>
+        <li>Нажмите «Скопировать ссылку на календарь».</li>
+        <li>В приложении «Расписание в вузе» выберите загрузку по ссылке.</li>
+        <li>Вставьте ссылку и дождитесь загрузки.</li>
+      </ol>
+      <button type="button" class="btn btn-primary" id="copy-link">Скопировать ссылку на календарь</button>
+      <button type="button" class="btn btn-secondary" id="copy-webcal">Скопировать как webcal://</button>
+      <p class="status" id="status" aria-live="polite"></p>
+      <p style="font-size:0.92rem;color:var(--muted);margin-top:0.75rem;">Адрес файла:<br><code id="link-preview"></code></p>
+    </div>
+
+    <div class="card">
+      <h2>Открыть файл</h2>
+      <p><a href="sample-calendar.ics">sample-calendar.ics</a></p>
+      <p style="font-size:0.92rem;color:var(--muted);">Можно открыть файл через «Поделиться» и выбрать приложение «Расписание», если iOS предложит его.</p>
+    </div>
+
+    <div class="card">
+      <h2>Описание формата</h2>
+      <p><a href="calendar-format.html">Какие поля .ics понимает приложение</a></p>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const icsURL = new URL('sample-calendar.ics', window.location.href).href;
+      const webcalURL = icsURL.replace(/^https?:/, 'webcal:');
+      const preview = document.getElementById('link-preview');
+      const status = document.getElementById('status');
+      preview.textContent = icsURL;
+
+      async function copyText(text, message) {
+        try {
+          await navigator.clipboard.writeText(text);
+          status.textContent = message;
+          status.className = 'status ok';
+        } catch (e) {
+          status.textContent = 'Не удалось скопировать. Скопируйте адрес из поля выше вручную.';
+          status.className = 'status';
+        }
+      }
+
+      document.getElementById('copy-link').addEventListener('click', function () {
+        copyText(icsURL, 'Ссылка скопирована.');
+      });
+      document.getElementById('copy-webcal').addEventListener('click', function () {
+        copyText(webcalURL, 'Ссылка webcal скопирована.');
+      });
+    })();
+  </script>
+</body>
+</html>
